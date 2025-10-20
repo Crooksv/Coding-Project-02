@@ -17,3 +17,15 @@ function fetchProductsThen() {
 function handleError(error) {
   console.error('Oops! Something went wrong:', error.message || error);
 }
+
+//committed step 3
+
+async function fetchProductsAsync() {
+  try {
+    const res = await fetch(API_URL);
+    const data = await res.json();
+    displayProducts(data);
+  } catch (err) {
+    handleError(err);
+  }
+}
