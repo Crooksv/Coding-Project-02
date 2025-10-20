@@ -53,3 +53,5 @@ function displayProducts(products) {
   });
 }
 
+fetchProductsThen();
+fetchProductsAsync();
