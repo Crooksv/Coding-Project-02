@@ -29,3 +29,27 @@ async function fetchProductsAsync() {
     handleError(err);
   }
 }
+
+//step 4 done
+
+function displayProducts(products) {
+  const box = document.querySelector('#product-container');
+  if (!box) return;
+  box.innerHTML = '';
+
+  products.slice(0, 5).forEach((p) => {
+    const name = p.fields.name;
+    const img = p.fields.image[0].url;
+    const price = (p.fields.price / 100).toFixed(2);
+
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${img}" alt="${name}" />
+      <div class="name">${name}</div>
+      <div class="price">$${price}</div>
+    `;
+    box.appendChild(card);
+  });
+}
+
